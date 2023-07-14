@@ -2,25 +2,28 @@
 #include <PubSubClient.h>
 #include <WiFi.h>
 #include "DHTesp.h"
+#include <ESP32Servo.h>
 
 #define LED_BUILTIN 2
 #define LDR_PIN 32
+#define SERVO_PIN 18
 const int DHT_PIN = 15;
 
-
+Servo servoMotor;
 DHTesp dhtSensor;
 WiFiClient espclient;
 PubSubClient mqttClient(espclient);
 char tempAr[6];
 char humiAr[6];
 String sInte;
+int prev_angle = 0;
 
 void setup() {
   Serial.begin(115200);
   setupWifi();
   setupMqtt();
   dhtSensor.setup(DHT_PIN, DHTesp::DHT22);
-
+  servoMotor.attach(SERVO_PIN, 500, 2400);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(LDR_PIN, INPUT);
   digitalWrite(LED_BUILTIN, LOW);
@@ -70,6 +73,7 @@ void connectToBroker()
     {
       Serial.println("connected");
       mqttClient.subscribe("Medibox light");
+      mqttClient.subscribe("Medibox motor");
       
     }
     else
@@ -122,7 +126,10 @@ void receiveCallback(char* topic, byte* payload, unsigned int length)
   }
   else if(strcmp(topic, "Medibox motor")==0)
   {
-    float motor_angle = atof(payloadCharAr);
+    int motor_angle = (int) atof(payloadCharAr);
+    int angle_difference = motor_angle-prev_angle;
+    servoMotor.write(motor_angle);
+    delay(100);
     Serial.print("motor angle: ");
     Serial.println(motor_angle);
   }
