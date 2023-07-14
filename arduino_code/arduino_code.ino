@@ -30,7 +30,7 @@ void loop() {
   
   updateTemperature();
   Serial.println(tempAr);
-  mqttClient.publish("ENTC-TEMP", tempAr);
+  mqttClient.publish("Medibox Temp", tempAr);
   delay(1000);
 }
 
@@ -59,7 +59,7 @@ void connectToBroker()
     if(mqttClient.connect("ESP32-3242425"))
     {
       Serial.println("connected");
-      mqttClient.subscribe("ENTC-ON-OFF");
+      mqttClient.subscribe("Medibox light");
       
     }
     else
