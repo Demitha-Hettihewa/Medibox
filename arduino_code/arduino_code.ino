@@ -9,6 +9,7 @@ DHTesp dhtSensor;
 WiFiClient espclient;
 PubSubClient mqttClient(espclient);
 char tempAr[6];
+char humiAr[6];
 
 void setup() {
   Serial.begin(115200);
@@ -31,6 +32,7 @@ void loop() {
   updateTemperature();
   Serial.println(tempAr);
   mqttClient.publish("Medibox Temp", tempAr);
+  mqttClient.publish("Medibox Humi", humiAr);
   delay(1000);
 }
 
@@ -71,10 +73,11 @@ void connectToBroker()
   }
 }
 
-void updateTemperature()
+void updateTempHumi()
 {
   TempAndHumidity data = dhtSensor.getTempAndHumidity();
   String(data.temperature, 2).toCharArray(tempAr, 6);
+  String(data.humidity, 2).toCharArray(humiAr, 6);
 }
 
 void receiveCallback(char* topic, byte* payload, unsigned int length)
@@ -89,7 +92,7 @@ void receiveCallback(char* topic, byte* payload, unsigned int length)
     Serial.print((char)payload[i]);
     payloadCharAr[i] = (char)payload[i];
 
-    if(strcmp(topic, "ENTC-ON-OFF")==0)
+    if(strcmp(topic, "Medibox light")==0)
     {
       if(payloadCharAr[0] == '1'){
         digitalWrite(LED_BUILTIN, HIGH);
