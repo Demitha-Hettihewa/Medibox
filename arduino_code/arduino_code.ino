@@ -121,8 +121,8 @@ void startAlarm()
   {
     for(int i = 0; i < 10; i++)
     {
-      tone(BUZZER_PIN, buzzFreq, 300);
-      delay(300);
+      tone(BUZZER_PIN, buzzFreq+10*i, 300);
+      delay(buzzDelay*1000);
     }
   }
   else{
@@ -155,7 +155,7 @@ void receiveCallback(char* topic, byte* payload, unsigned int length)
   }
   else if(strcmp(topic, "Medibox motor")==0)
   {
-    int motor_angle = (int) atof(payloadCharAr);
+    int motor_angle = atoi(payloadCharAr);
     int angle_difference = motor_angle-prev_angle;
     servoMotor.write(motor_angle);
     delay(100);
