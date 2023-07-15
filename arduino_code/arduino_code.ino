@@ -7,6 +7,7 @@
 #define LED_BUILTIN 2
 #define LDR_PIN 32
 #define SERVO_PIN 18
+#define BUZZER_PIN 33
 const int DHT_PIN = 15;
 
 Servo servoMotor;
@@ -15,9 +16,15 @@ WiFiClient espclient;
 PubSubClient mqttClient(espclient);
 char tempAr[6];
 char humiAr[6];
+char buzDelay[6];
+char buzFreq[6];
+char buzMode[6];
 String sInte;
 int prev_angle = 0;
-
+int buzzDelay;
+int buzzFreq{100};
+int buzzMode;
+int keepPlaying;
 void setup() {
   Serial.begin(115200);
   setupWifi();
@@ -36,8 +43,11 @@ void loop() {
     connectToBroker();
   }
   mqttClient.loop();
-  
-  
+  if(keepPlaying == 1)
+  {
+    startAlarm();
+  }
+  //tone(BUZZER_PIN, 100, 1000);
   updateTempHumi();
   readIntensity();
   Serial.println(tempAr);
@@ -74,7 +84,12 @@ void connectToBroker()
       Serial.println("connected");
       mqttClient.subscribe("Medibox light");
       mqttClient.subscribe("Medibox motor");
-      
+      mqttClient.subscribe("Medibox buzDelay");
+      mqttClient.subscribe("Medibox buzFreq");
+      mqttClient.subscribe("Medibox buzMode");
+      mqttClient.subscribe("Medibox stopAlarm");
+      mqttClient.subscribe("Medibox startAlarm");
+
     }
     else
     {
@@ -100,7 +115,21 @@ void readIntensity()
   Serial.println(intensity);
   sInte = String(intensity);
 }
-
+void startAlarm()
+{
+  if(buzzMode == 0)
+  {
+    for(int i = 0; i < 10; i++)
+    {
+      tone(BUZZER_PIN, buzzFreq, 300);
+      delay(300);
+    }
+  }
+  else{
+    tone(BUZZER_PIN, buzzFreq, 1000);
+    delay(1000);
+  }
+}
 void receiveCallback(char* topic, byte* payload, unsigned int length)
 {
   Serial.print("Messeage arrive [");
@@ -133,6 +162,25 @@ void receiveCallback(char* topic, byte* payload, unsigned int length)
     Serial.print("motor angle: ");
     Serial.println(motor_angle);
   }
-
-  
+  else if(strcmp(topic, "Medibox buzDelay")==0)
+  {
+    buzzDelay = (int) atof(payloadCharAr);
+  }
+  else if(strcmp(topic, "Medibox buzFreq")==0)
+  {
+    buzzFreq = (int) atof(payloadCharAr);
+  }
+  else if(strcmp(topic, "Medibox startAlarm")==0)
+  {
+    keepPlaying  = 1;
+  }
+  else if(strcmp(topic, "Medibox stopAlarm")==0)
+  {
+    keepPlaying  = 0;
+  }
+  else if(strcmp(topic, "Medibox buzMode")==0)
+  {
+    buzzMode = (int) atof(payloadCharAr);
+    tone(BUZZER_PIN, 2000, 100);
+  }  
 }
