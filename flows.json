@@ -225,6 +225,17 @@
         "className": ""
     },
     {
+        "id": "1d1ae0460f2f192b",
+        "type": "ui_group",
+        "name": "Buzzer",
+        "tab": "8ddf856740f9617c",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "739b43ef746daf7e",
         "type": "mqtt in",
         "z": "f24edb5bcf5818e3",
@@ -867,10 +878,10 @@
         "type": "function",
         "z": "f24edb5bcf5818e3",
         "name": "function 1",
-        "func": "const thetaMin = flow.get(\"theta\");\nconst gmma = flow.get(\"gamma\");\nconst I = flow.get(\"intensity\");\n\nconst motor_angle = thetaMin + (180 - thetaMin)*gmma*I;\nmsg.payload = motor_angle;\nreturn msg;",
+        "func": "const thetaMin = flow.get(\"theta\");\nconst gmma = flow.get(\"gamma\");\nconst I = flow.get(\"intensity\");\nconst motor_angle = thetaMin + (180 - thetaMin)*gmma*I;\nconst prevAng = flow.get(\"prevAng\");\nmsg.payload = Math.round(motor_angle);\nif (prevAng!=motor_angle)\n{\n    const prevAng = flow.set(\"prevAng\", motor_angle)\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst prevAng = flow.set(\"prevAng\", 0)",
         "finalize": "",
         "libs": [],
         "x": 600,
@@ -900,10 +911,12 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 380,
+        "x": 460,
         "y": 1680,
         "wires": [
-            []
+            [
+                "7ae1eb77ac2856fa"
+            ]
         ]
     },
     {
@@ -935,7 +948,9 @@
         "x": 120,
         "y": 1560,
         "wires": [
-            []
+            [
+                "fdcc9a392d4be0b1"
+            ]
         ]
     },
     {
@@ -958,10 +973,12 @@
         "max": 10,
         "step": 1,
         "className": "",
-        "x": 110,
-        "y": 1600,
+        "x": 290,
+        "y": 1620,
         "wires": [
-            []
+            [
+                "3062fd1fbc367f39"
+            ]
         ]
     },
     {
@@ -1239,7 +1256,9 @@
         "x": 110,
         "y": 1680,
         "wires": [
-            []
+            [
+                "2f469de67e9be932"
+            ]
         ]
     },
     {
@@ -1260,10 +1279,12 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 380,
+        "x": 460,
         "y": 1760,
         "wires": [
-            []
+            [
+                "e0b9ad93beb92321"
+            ]
         ]
     },
     {
@@ -1295,7 +1316,9 @@
         "x": 110,
         "y": 1760,
         "wires": [
-            []
+            [
+                "332f152bc5cf26a5"
+            ]
         ]
     },
     {
@@ -1316,10 +1339,12 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 380,
+        "x": 460,
         "y": 1840,
         "wires": [
-            []
+            [
+                "fc119a6b91b2e1a7"
+            ]
         ]
     },
     {
@@ -1351,7 +1376,9 @@
         "x": 110,
         "y": 1840,
         "wires": [
-            []
+            [
+                "8bf87efa6e8f0597"
+            ]
         ]
     },
     {
@@ -1625,6 +1652,563 @@
         "statusType": "auto",
         "x": 760,
         "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "5bddd3c91d521ce3",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Delay (s)",
+        "tooltip": "",
+        "group": "1d1ae0460f2f192b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 120,
+        "y": 2240,
+        "wires": [
+            [
+                "e3a1a1fab42d1d08"
+            ]
+        ]
+    },
+    {
+        "id": "68cb9c297d82c96d",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Frequency (Hz)",
+        "tooltip": "",
+        "group": "1d1ae0460f2f192b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 140,
+        "y": 2300,
+        "wires": [
+            [
+                "229f9f13c9e7a74b"
+            ]
+        ]
+    },
+    {
+        "id": "afd8de43369260b7",
+        "type": "ui_dropdown",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "1d1ae0460f2f192b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Repeated on-off",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "Continuous",
+                "value": "1",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 120,
+        "y": 2360,
+        "wires": [
+            [
+                "f951b45f89c6d643"
+            ]
+        ]
+    },
+    {
+        "id": "6dc8a5f15e21f18c",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2480,
+        "wires": [
+            [
+                "d977c7f4e3c6baa6"
+            ]
+        ]
+    },
+    {
+        "id": "e3a1a1fab42d1d08",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzDelay",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 650,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "229f9f13c9e7a74b",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzFreq",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 650,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "f951b45f89c6d643",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzMode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 650,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "d977c7f4e3c6baa6",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox stopAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 370,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "b37832720428ce68",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2420,
+        "wires": [
+            [
+                "3a355ed7f70027ed"
+            ]
+        ]
+    },
+    {
+        "id": "3a355ed7f70027ed",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox startAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 370,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "2f469de67e9be932",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "332f152bc5cf26a5",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8bf87efa6e8f0597",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm3",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdcc9a392d4be0b1",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "schedule",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3062fd1fbc367f39",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "days",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28c178b50f0d8f8b",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 2",
+        "func": "const lt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: 'numeric', hour12: false });\nvar [hours, minutes] = lt.split(':');\n//const hours = lt.getHours();\nconst currentTime = parseInt(hours) * 60 + parseInt(minutes);\nconst alarms_ = flow.get(\"alarms\");\nconst active_ = flow.get(\"active\");\n//msg.payload = currentTime;\nmsg.payload = currentTime;\nif(flow.get(\"shedule\"))\n{\n    if(currentTime == alarms_[0]){\n        msg.payload = alarms_;\n    }\n    // for(let i = 0; i < 3; i++)\n    // {\n    //     if(active_[i])\n    //     {\n    //         if(currentTime == alarms_[i])\n    //         {\n    //             return msg;\n    //         }\n    //     }\n    // }\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1920,
+        "wires": [
+            [
+                "f343279a6d00cbaa",
+                "2dcc4088f4afb547"
+            ]
+        ]
+    },
+    {
+        "id": "1346efcbaa9b41aa",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 230,
+        "y": 1920,
+        "wires": [
+            [
+                "28c178b50f0d8f8b"
+            ]
+        ]
+    },
+    {
+        "id": "7ae1eb77ac2856fa",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 3",
+        "func": "const time = msg.payload;\nflow.set(\"a1\", (time + 19800000) / 60000) ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1680,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "e0b9ad93beb92321",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 4",
+        "func": "const time = msg.payload;\nflow.set(\"a2\", (time + 19800000) / 60000) ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1760,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "fc119a6b91b2e1a7",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 5",
+        "func": "const time = msg.payload;\nflow.set(\"a3\", (time + 19800000) / 60000) ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1840,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "4ea05bbbf29a97c1",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 6",
+        "func": "const alarms = [flow.get(\"a1\"), flow.get(\"a2\"), flow.get(\"a3\")];\nconst active = [flow.get(\"alarm1\"), flow.get(\"alarm1\"), flow.get(\"alarm1\")];\nflow.set(\"alarms\", alarms);\nflow.set(\"active\", active);\nmsg.payload =alarms;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1760,
+        "wires": [
+            [
+                "2dcc4088f4afb547"
+            ]
+        ]
+    },
+    {
+        "id": "f343279a6d00cbaa",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox startAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 650,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "4a6dabf1358d8267",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 50,
+        "y": 1620,
+        "wires": [
+            [
+                "dd9bf70ba293b1d6",
+                "0422a48054030a53",
+                "5af61e9f5bd8b4dd",
+                "51e27b18b93a6941",
+                "a73874250e882f8b",
+                "d42607cbe3cc6324"
+            ]
+        ]
+    },
+    {
+        "id": "2dcc4088f4afb547",
+        "type": "debug",
+        "z": "f24edb5bcf5818e3",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1980,
         "wires": []
     }
 ]
