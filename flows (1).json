@@ -1,0 +1,2376 @@
+[
+    {
+        "id": "f24edb5bcf5818e3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ca64b95d2f7bedae",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "005df9561efc7be2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "256880434f94d56d",
+        "type": "ui_tab",
+        "name": "Medibox",
+        "icon": "Temp",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c03c0a9e9638a4bc",
+        "type": "ui_group",
+        "name": "Features",
+        "tab": "8ddf856740f9617c",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a8e39afd293c7fa7",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "256880434f94d56d",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d0877f47727af705",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "256880434f94d56d",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7505e16e2362d974",
+        "type": "ui_group",
+        "name": "Alarms",
+        "tab": "256880434f94d56d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8ddf856740f9617c",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "da1b79777c1c0162",
+        "type": "ui_group",
+        "name": "Shade Controller",
+        "tab": "256880434f94d56d",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c4adf34ad03f081c",
+        "type": "ui_group",
+        "name": "",
+        "tab": "256880434f94d56d",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "81c72a89dd5899f6",
+        "type": "ui_group",
+        "name": "Light intensity",
+        "tab": "256880434f94d56d",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d1ae0460f2f192b",
+        "type": "ui_group",
+        "name": "Buzzer",
+        "tab": "8ddf856740f9617c",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce43895248d73ead",
+        "type": "ui_group",
+        "name": "Alarm button",
+        "tab": "256880434f94d56d",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "739b43ef746daf7e",
+        "type": "mqtt in",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox Temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "005df9561efc7be2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "80d9557539f1e798",
+                "c829607d92514b81"
+            ]
+        ]
+    },
+    {
+        "id": "c829607d92514b81",
+        "type": "ui_gauge",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "d0877f47727af705",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "C",
+        "format": "{{payload}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "80d9557539f1e798",
+        "type": "ui_chart",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "d0877f47727af705",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "30",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#a40e0e",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 910,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac23d262a0c2822d",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox light",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 830,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "602d1e571139898b",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "c03c0a9e9638a4bc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "ac23d262a0c2822d"
+            ]
+        ]
+    },
+    {
+        "id": "65b2f97f8fee2e11",
+        "type": "ui_numeric",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Min Temperature",
+        "tooltip": "",
+        "group": "d0877f47727af705",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "25",
+        "step": 1,
+        "className": "",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "6e7359b15fcc9243"
+            ]
+        ]
+    },
+    {
+        "id": "0113cdf2aed083e0",
+        "type": "ui_numeric",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Max Temperature",
+        "tooltip": "",
+        "group": "d0877f47727af705",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "25",
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 370,
+        "y": 520,
+        "wires": [
+            [
+                "09028868ed2b8879"
+            ]
+        ]
+    },
+    {
+        "id": "6e7359b15fcc9243",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minT",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "fa12791a71bf5ab5"
+            ]
+        ]
+    },
+    {
+        "id": "09028868ed2b8879",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxT",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "fa12791a71bf5ab5"
+            ]
+        ]
+    },
+    {
+        "id": "fa12791a71bf5ab5",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "min/max",
+        "func": "const t1 = flow.get(\"minT\");\nconst t2 = flow.get(\"maxT\");\n\n\nmsg = {\n    ui_control: {\n        min: t1,\n        max: t2,\n        seg1: t1 + (t2 - t1) / 3,\n        seg2: t1 + 2 *(t2 - t1)/ 3\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst t1 = flow.get(\"minT\");\nconst t2 = flow.get(\"maxT\");\n\n\nmsg = {\n    ui_control: {\n        min: t1,\n        max: t2,\n        seg1: t1 + (t2 - t1) / 3,\n        seg2: t1 + 2 * (t2 - t1) / 3\n    }\n}\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 480,
+        "wires": [
+            [
+                "c829607d92514b81"
+            ]
+        ]
+    },
+    {
+        "id": "76e99d93b4acdc68",
+        "type": "mqtt in",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox Humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "005df9561efc7be2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 710,
+        "y": 960,
+        "wires": [
+            [
+                "6dc1ef54bf76d664",
+                "78057090100b48bc"
+            ]
+        ]
+    },
+    {
+        "id": "6dc1ef54bf76d664",
+        "type": "ui_chart",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "a8e39afd293c7fa7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "30",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#a40e0e",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 940,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a948e9085ede12de",
+        "type": "ui_numeric",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Min Humidity",
+        "tooltip": "",
+        "group": "a8e39afd293c7fa7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 820,
+        "wires": [
+            [
+                "7f7a854d286ebc2b"
+            ]
+        ]
+    },
+    {
+        "id": "f6e040a4929005dc",
+        "type": "ui_numeric",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Max Humidity",
+        "tooltip": "",
+        "group": "a8e39afd293c7fa7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "50",
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 400,
+        "y": 900,
+        "wires": [
+            [
+                "349c193d1f5d805d"
+            ]
+        ]
+    },
+    {
+        "id": "7f7a854d286ebc2b",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "minH",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "631f5c10147e5e6e"
+            ]
+        ]
+    },
+    {
+        "id": "349c193d1f5d805d",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maxH",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 900,
+        "wires": [
+            [
+                "631f5c10147e5e6e"
+            ]
+        ]
+    },
+    {
+        "id": "631f5c10147e5e6e",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "min/max",
+        "func": "const h1 = flow.get(\"minH\");\nconst h2 = flow.get(\"maxH\");\n\n\nmsg = {\n    ui_control: {\n        min: h1,\n        max: h2,\n        seg1: h1 + (h2 - h1) / 3,\n        seg2: h1 + 2 *(h2 - h1)/ 3\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "const h1 = flow.get(\"minH\");\nconst h2 = flow.get(\"maxH\");\n\n\nmsg = {\n    ui_control: {\n        min: h1,\n        max: h2,\n        seg1: h1 + (h2 - h1) / 3,\n        seg2: h1 + 2 * (h2 - h1) / 3\n    }\n}\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 860,
+        "wires": [
+            [
+                "78057090100b48bc"
+            ]
+        ]
+    },
+    {
+        "id": "78057090100b48bc",
+        "type": "ui_gauge",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "a8e39afd293c7fa7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "fe71660d3b144f51",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Main switch",
+        "tooltip": "",
+        "group": "c4adf34ad03f081c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65bf30d87000661d",
+        "type": "ui_slider",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Minimum angle",
+        "tooltip": "",
+        "group": "da1b79777c1c0162",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            [
+                "0e0c17a1dbb62189"
+            ]
+        ]
+    },
+    {
+        "id": "0e4478cf126f96ed",
+        "type": "ui_slider",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Controlling factor",
+        "tooltip": "",
+        "group": "da1b79777c1c0162",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "0.01",
+        "max": "0.99",
+        "step": "0.01",
+        "className": "",
+        "x": 330,
+        "y": 1280,
+        "wires": [
+            [
+                "0385ecd10f13eac9"
+            ]
+        ]
+    },
+    {
+        "id": "0e0c17a1dbb62189",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "theta",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1220,
+        "wires": [
+            [
+                "93fa72781c1435f5"
+            ]
+        ]
+    },
+    {
+        "id": "0385ecd10f13eac9",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gamma",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1300,
+        "wires": [
+            [
+                "93fa72781c1435f5"
+            ]
+        ]
+    },
+    {
+        "id": "93fa72781c1435f5",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 1",
+        "func": "const thetaMin = flow.get(\"theta\");\nconst gmma = flow.get(\"gamma\");\nconst I = flow.get(\"intensity\");\nconst motor_angle = thetaMin + (180 - thetaMin)*gmma*I;\nconst prevAng = flow.get(\"prevAng\");\nmsg.payload = Math.round(motor_angle);\nif (prevAng!=motor_angle)\n{\n    const prevAng = flow.set(\"prevAng\", motor_angle)\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nconst prevAng = flow.set(\"prevAng\", 0)",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1300,
+        "wires": [
+            [
+                "4af994606e6fb30a",
+                "c9ca42a08d839ffd"
+            ]
+        ]
+    },
+    {
+        "id": "51e27b18b93a6941",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "mode": "time",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 460,
+        "y": 1680,
+        "wires": [
+            [
+                "7ae1eb77ac2856fa"
+            ]
+        ]
+    },
+    {
+        "id": "ce89c333e1619dc8",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Schedule",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 120,
+        "y": 1560,
+        "wires": [
+            [
+                "fdcc9a392d4be0b1"
+            ]
+        ]
+    },
+    {
+        "id": "ae85743aee7b791b",
+        "type": "ui_numeric",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Days",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 290,
+        "y": 1620,
+        "wires": [
+            [
+                "3062fd1fbc367f39"
+            ]
+        ]
+    },
+    {
+        "id": "d91cca66d922b5a8",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Temperature",
+        "tooltip": "",
+        "group": "c03c0a9e9638a4bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "86728be786e97790"
+            ]
+        ]
+    },
+    {
+        "id": "e6900de4abd9ef8c",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Medibox_Temperature\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 20,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "86728be786e97790",
+        "type": "switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "e6900de4abd9ef8c"
+            ],
+            [
+                "10f96344cafdb76d"
+            ]
+        ]
+    },
+    {
+        "id": "291e9d5e17d37a27",
+        "type": "ui_ui_control",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "events": "all",
+        "x": 780,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "10f96344cafdb76d",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Medibox_Temperature\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "793a44ea80002c0e",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Humidity",
+        "tooltip": "",
+        "group": "c03c0a9e9638a4bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "898cba758e21eee8"
+            ]
+        ]
+    },
+    {
+        "id": "ccd0b70ef847ee95",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Medibox_Humidity\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "898cba758e21eee8",
+        "type": "switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "ccd0b70ef847ee95"
+            ],
+            [
+                "29b7d54c987fdf85"
+            ]
+        ]
+    },
+    {
+        "id": "29b7d54c987fdf85",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Medibox_Humidity\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "dd9bf70ba293b1d6",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 1680,
+        "wires": [
+            [
+                "2f469de67e9be932"
+            ]
+        ]
+    },
+    {
+        "id": "a73874250e882f8b",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "mode": "time",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 460,
+        "y": 1760,
+        "wires": [
+            [
+                "e0b9ad93beb92321"
+            ]
+        ]
+    },
+    {
+        "id": "0422a48054030a53",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 1760,
+        "wires": [
+            [
+                "332f152bc5cf26a5"
+            ]
+        ]
+    },
+    {
+        "id": "d42607cbe3cc6324",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 8,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "mode": "time",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 460,
+        "y": 1840,
+        "wires": [
+            [
+                "fc119a6b91b2e1a7"
+            ]
+        ]
+    },
+    {
+        "id": "5af61e9f5bd8b4dd",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "7505e16e2362d974",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 1840,
+        "wires": [
+            [
+                "8bf87efa6e8f0597"
+            ]
+        ]
+    },
+    {
+        "id": "ee3fbeba57e7f617",
+        "type": "mqtt in",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox Inte",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "005df9561efc7be2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "7195373c5a75802a",
+                "d0eb8ec6e1adfda5"
+            ]
+        ]
+    },
+    {
+        "id": "b42ed6361bee2c54",
+        "type": "ui_gauge",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "81c72a89dd5899f6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "0.33",
+        "seg2": "0.66",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "7195373c5a75802a",
+        "type": "ui_chart",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "81c72a89dd5899f6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "30",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#a40e0e",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5fa3c58d08e8989b",
+        "type": "ui_switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Light Intensity",
+        "tooltip": "",
+        "group": "c03c0a9e9638a4bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "60342e45a76f7bf1"
+            ]
+        ]
+    },
+    {
+        "id": "31266f9edf131591",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Medibox_Light_intensity\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "60342e45a76f7bf1",
+        "type": "switch",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "31266f9edf131591"
+            ],
+            [
+                "93e3c9b6d6fc459d"
+            ]
+        ]
+    },
+    {
+        "id": "93e3c9b6d6fc459d",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Medibox_Light_intensity\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "291e9d5e17d37a27"
+            ]
+        ]
+    },
+    {
+        "id": "d0eb8ec6e1adfda5",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "intensity",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1380,
+        "wires": [
+            [
+                "b42ed6361bee2c54",
+                "93fa72781c1435f5"
+            ]
+        ]
+    },
+    {
+        "id": "4af994606e6fb30a",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox motor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 960,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "c9ca42a08d839ffd",
+        "type": "debug",
+        "z": "f24edb5bcf5818e3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "5bddd3c91d521ce3",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Delay (s)",
+        "tooltip": "",
+        "group": "1d1ae0460f2f192b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 260,
+        "y": 2240,
+        "wires": [
+            [
+                "e3a1a1fab42d1d08"
+            ]
+        ]
+    },
+    {
+        "id": "68cb9c297d82c96d",
+        "type": "ui_text_input",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "Frequency (Hz)",
+        "tooltip": "",
+        "group": "1d1ae0460f2f192b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 280,
+        "y": 2300,
+        "wires": [
+            [
+                "229f9f13c9e7a74b"
+            ]
+        ]
+    },
+    {
+        "id": "afd8de43369260b7",
+        "type": "ui_dropdown",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "1d1ae0460f2f192b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Repeated on-off",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "Continuous",
+                "value": "1",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 260,
+        "y": 2360,
+        "wires": [
+            [
+                "f951b45f89c6d643"
+            ]
+        ]
+    },
+    {
+        "id": "e3a1a1fab42d1d08",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzDelay",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 790,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "229f9f13c9e7a74b",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzFreq",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 790,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "f951b45f89c6d643",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox buzMode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 790,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "b37832720428ce68",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 2440,
+        "wires": [
+            [
+                "3a355ed7f70027ed"
+            ]
+        ]
+    },
+    {
+        "id": "3a355ed7f70027ed",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox startAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 470,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "2f469de67e9be932",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "332f152bc5cf26a5",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8bf87efa6e8f0597",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm3",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdcc9a392d4be0b1",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "schedule",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3062fd1fbc367f39",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "days",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1346efcbaa9b41aa",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 230,
+        "y": 1920,
+        "wires": [
+            [
+                "28c178b50f0d8f8b"
+            ]
+        ]
+    },
+    {
+        "id": "7ae1eb77ac2856fa",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 3",
+        "func": "let t1 = msg.payload;\nconst time1 = new Date(t1);\nconst hours = time1.getHours();\nconst minutes = time1.getMinutes();\nconst currentTime = parseInt(hours) * 60 + parseInt(minutes);\nflow.set(\"a1\", currentTime%1440) ;\nmsg.payload = currentTime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1680,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "e0b9ad93beb92321",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 4",
+        "func": "let t1 = msg.payload;\nconst time1 = new Date(t1);\nconst hours = time1.getHours();\nconst minutes = time1.getMinutes();\nconst currentTime = parseInt(hours) * 60 + parseInt(minutes);\nflow.set(\"a2\", currentTime%1440);\nmsg.payload = currentTime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1760,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "fc119a6b91b2e1a7",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 5",
+        "func": "let t1 = msg.payload;\nconst time1 = new Date(t1);\nconst hours = time1.getHours();\nconst minutes = time1.getMinutes();\nconst currentTime = parseInt(hours) * 60 + parseInt(minutes);\nflow.set(\"a3\", currentTime%1440);\nmsg.payload = currentTime;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1840,
+        "wires": [
+            [
+                "4ea05bbbf29a97c1"
+            ]
+        ]
+    },
+    {
+        "id": "4ea05bbbf29a97c1",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 6",
+        "func": "const alarm = [flow.get(\"a1\"), flow.get(\"a2\"), flow.get(\"a3\")];\nconst actives = [flow.get(\"alarm1\"), flow.get(\"alarm2\"), flow.get(\"alarm3\")];\nflow.set(\"alarms\", alarm);\nflow.set(\"active\", actives);\nmsg.payload =alarm;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f343279a6d00cbaa",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox startAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 650,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "4a6dabf1358d8267",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1620,
+        "wires": [
+            [
+                "dd9bf70ba293b1d6",
+                "0422a48054030a53",
+                "5af61e9f5bd8b4dd",
+                "51e27b18b93a6941",
+                "a73874250e882f8b",
+                "d42607cbe3cc6324",
+                "ce89c333e1619dc8"
+            ]
+        ]
+    },
+    {
+        "id": "28c178b50f0d8f8b",
+        "type": "function",
+        "z": "f24edb5bcf5818e3",
+        "name": "function 2",
+        "func": "const lt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: 'numeric', hour12: false });\nvar [hours, minutes] = lt.split(':');\n//const hours = lt.getHours();\nconst currentTime = (parseInt(hours) * 60 + parseInt(minutes))%1440;\nconst alarms_ = flow.get(\"alarms\");\nconst active_ = flow.get(\"active\");\nconst days = flow.get(\"days\")\n//msg.payload = currentTime;\nmsg.payload = flow.get(\"schedule\");\nif (flow.get(\"schedule\") )\n{\n    for(let i = 0; i < 3; i++)\n    {\n        if(active_[i])\n        {\n            if(currentTime == alarms_[i])\n            {\n                msg.payload = active_;\n                return msg;\n            }\n        }\n    } \n}\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1920,
+        "wires": [
+            [
+                "f343279a6d00cbaa",
+                "50d753b2afb6c3fa"
+            ]
+        ]
+    },
+    {
+        "id": "6dc8a5f15e21f18c",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 360,
+        "y": 2140,
+        "wires": [
+            [
+                "d977c7f4e3c6baa6"
+            ]
+        ]
+    },
+    {
+        "id": "d977c7f4e3c6baa6",
+        "type": "mqtt out",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "topic": "Medibox stopAlarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "005df9561efc7be2",
+        "x": 570,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "36457640b854e313",
+        "type": "ui_button",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "group": "ce43895248d73ead",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Turn alarm off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 2060,
+        "wires": [
+            [
+                "9bfe40232cdf0d8d",
+                "d977c7f4e3c6baa6"
+            ]
+        ]
+    },
+    {
+        "id": "57b582851891429a",
+        "type": "ui_ui_control",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "events": "all",
+        "x": 740,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9bfe40232cdf0d8d",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Medibox_Alarm_button\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2060,
+        "wires": [
+            [
+                "57b582851891429a"
+            ]
+        ]
+    },
+    {
+        "id": "50d753b2afb6c3fa",
+        "type": "change",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Medibox_Alarm_button\"] }}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1980,
+        "wires": [
+            [
+                "57b582851891429a"
+            ]
+        ]
+    },
+    {
+        "id": "38464730b7a43b4f",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "86400",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41a4e8d7e7070b26",
+        "type": "inject",
+        "z": "f24edb5bcf5818e3",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 2300,
+        "wires": [
+            [
+                "5bddd3c91d521ce3",
+                "68cb9c297d82c96d",
+                "afd8de43369260b7"
+            ]
+        ]
+    },
+    {
+        "id": "91615e00547d2f50",
+        "type": "debug",
+        "z": "f24edb5bcf5818e3",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 1860,
+        "wires": []
+    }
+]
