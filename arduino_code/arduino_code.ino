@@ -3,23 +3,29 @@
 #include <WiFi.h>
 #include "DHTesp.h"
 #include <ESP32Servo.h>
+#include <LiquidCrystal_I2C.h>
 
 #define LED_BUILTIN 2
 #define LDR_PIN 32
 #define SERVO_PIN 18
 #define BUZZER_PIN 33
+#define NTP_SERVER     "pool.ntp.org"
+#define UTC_OFFSET     0
+#define UTC_OFFSET_DST 0
 const int DHT_PIN = 15;
 
 Servo servoMotor;
 DHTesp dhtSensor;
 WiFiClient espclient;
 PubSubClient mqttClient(espclient);
+LiquidCrystal_I2C LCD = LiquidCrystal_I2C(0x27, 20, 4);
 char tempAr[6];
 char humiAr[6];
 char buzDelay[6];
 char buzFreq[6];
 char buzMode[6];
 String sInte;
+String alarms = "";
 int prev_angle = 0;
 int buzzDelay;
 int buzzFreq{100};
@@ -35,6 +41,16 @@ void setup() {
   pinMode(LDR_PIN, INPUT);
   digitalWrite(LED_BUILTIN, LOW);
 
+  LCD.init();
+  LCD.backlight();
+  LCD.setCursor(0, 0);
+  LCD.print("Medibox Online");
+  LCD.setCursor(0, 1);
+  LCD.print("Connecting to wifi");
+  configTime(5 * 3600, 30 * 60, NTP_SERVER);
+  delay(1000);
+  LCD.clear();
+
 }
 
 void loop() {
@@ -48,6 +64,7 @@ void loop() {
     startAlarm();
   }
   //tone(BUZZER_PIN, 100, 1000);
+  printLocalTime();
   updateTempHumi();
   readIntensity();
   Serial.println(tempAr);
@@ -89,6 +106,7 @@ void connectToBroker()
       mqttClient.subscribe("Medibox buzMode");
       mqttClient.subscribe("Medibox stopAlarm");
       mqttClient.subscribe("Medibox startAlarm");
+      mqttClient.subscribe("Medibox active alarms");
 
     }
     else
@@ -127,9 +145,34 @@ void startAlarm()
   }
   else{
     tone(BUZZER_PIN, buzzFreq, 1000);
-    delay(1000);
+
   }
 }
+
+void printLocalTime() 
+{
+  setenv("TZ", "Asia/Colombo", 1);
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    LCD.setCursor(0, 1);
+    LCD.println("Connection Err");
+    return;
+  }
+  LCD.setCursor(0, 0);
+  LCD.println(&timeinfo, "%H:%M:%S");
+
+  LCD.setCursor(0, 1);
+  LCD.println(&timeinfo, "%d/%m/%Y   %Z");
+
+  LCD.setCursor(0, 2);
+  LCD.println("Active alarms");
+  
+  LCD.setCursor(0, 3);
+  LCD.println("");
+  LCD.println(alarms);
+
+}
+
 void receiveCallback(char* topic, byte* payload, unsigned int length)
 {
   Serial.print("Messeage arrive [");
@@ -182,5 +225,16 @@ void receiveCallback(char* topic, byte* payload, unsigned int length)
   {
     buzzMode = (int) atof(payloadCharAr);
     tone(BUZZER_PIN, 2000, 100);
+  }
+  else if(strcmp(topic, "Medibox active alarms")==0)
+  {
+    alarms = "";
+    for (int i = 0; i < length; i++) {
+      alarms += (char)payloadCharAr[i];
+    }
+ 
+    delay(100);
+    Serial.print("Active alarms ");
+    Serial.println(alarms);
   }  
 }
